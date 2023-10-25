@@ -3,6 +3,7 @@ import { registerRoute } from 'workbox-routing';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute } from 'workbox-precaching/precacheAndRoute';
+import {warmStrategyCache} from 'workbox-recipes';
 
 // Precache and route any assets from the Workbox manifest.
 precacheAndRoute(self.__WB_MANIFEST);
@@ -21,7 +22,7 @@ const pageCache = new CacheFirst({
 });
 
 // Warm the pageCache with specific URLs.
-pageCache.warmUp({
+warmStrategyCache({
   urls: ['/index.html', '/'],
   strategy: pageCache,
 });

@@ -26,8 +26,8 @@ module.exports = () => {
       }),
       
       new InjectManifest({
-        swSrc: './src-sw.js',
-        swDest: 'sw.js',
+        swSrc: './src-sw.js', // source of the script for the service worker in our client folder
+        swDest: 'src-sw.js' // where the service worker script will be saved in the dist folder
       }),
       new WebpackPwaManifest({
         name: 'Just Another Text Editor',
