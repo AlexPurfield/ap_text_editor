@@ -6,8 +6,7 @@
     "server": "cd server nodemon server.js --ignore client",
     "build": "cd client && npm run build",
     "install": "cd server && npm i && cd ../client && npm i",
-    "client": "cd client && npm start",
-    "heroku-prebuild": "npm install --dev"
+    "client": "cd client && npm start"
 
   },
   "author": "2U",
@@ -33,10 +32,6 @@
     "workbox-webpack-plugin": "^6.2.4"
   },
   "dependencies": {
-    "code-mirror-themes": "^1.0.0",
-    "heroku": "^0.2.0",
-    "idb": "^6.1.2",
-    "postbuild": "^2.1.0",
-    "workbox-cacheable-response": "^7.0.0"
+    "express": "^4.17.1"
   }
 }
