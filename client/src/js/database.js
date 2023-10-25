@@ -1,5 +1,6 @@
 import { openDB } from 'idb';
 
+
 const initdb = async () =>
   openDB('jate', 1, {
     upgrade(db) {
@@ -14,16 +15,21 @@ const initdb = async () =>
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
 export const putDb = async (content) => {
+  
   console.log('PUT to the database');
 
   const contactDb = await openDB('jate', 1);
 
-  const tx = contactDb.transaction('jate');
+  const tx = contactDb.transaction('jate', 'readwrite');
 
-  const request = store.put({ id:1, value: content });
+  const store = tx.objectStore('jate');
 
-  const result = await ReadableStreamBYOBRequest;
-  console.log('data saved to db', result);
+  const request = store.put({  value: content });
+
+  await request;
+  console.log('data saved to db');
+
+
 };
 
 // TODO: Add logic for a method that gets all the content from the database
@@ -39,7 +45,7 @@ const request= store.getAll();
 
 const result = await request;
 console.log('result.value', result);
-return result?.value;
+return result;
 };
 
 initdb();

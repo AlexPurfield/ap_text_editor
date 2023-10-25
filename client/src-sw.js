@@ -21,7 +21,7 @@ const pageCache = new CacheFirst({
 });
 
 // Warm the pageCache with specific URLs.
-warmStrategyCache({
+pageCache.warmUp({
   urls: ['/index.html', '/'],
   strategy: pageCache,
 });
@@ -32,7 +32,7 @@ registerRoute(
   pageCache
 );
 
-// Route assets (styles, scripts, workers) using a StaleWhileRevalidate strategy.
+
 registerRoute(
   ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
   new CacheFirst({
