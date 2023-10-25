@@ -6,7 +6,9 @@
     "server": "cd server nodemon server.js --ignore client",
     "build": "cd client && npm run build",
     "install": "cd server && npm i && cd ../client && npm i",
-    "client": "cd client && npm start"
+    "client": "cd client && npm start",
+    "build-client": "cd client && webpack --mode production",  
+    "build-server": "cd server && webpack --mode production"   
   },
   "author": "2U",
   "license": "UNLICENSED",
@@ -34,7 +36,8 @@
     "idb": "^6.1.2",
     "postbuild": "^2.1.0",
     "workbox-cacheable-response": "^7.0.0",
-    "webpack": "^5.51.1",  
-    "webpack-cli": "^4.8.0"  
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
   }
 }
+
