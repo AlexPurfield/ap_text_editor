@@ -1,5 +1,8 @@
 {  "name": "JATE",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.17.1"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
